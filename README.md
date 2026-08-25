@@ -2,11 +2,30 @@
 
 Example project to demonstrate agent concepts for O'Reilly "Bash and Agents" course.
 
-## Branches
+## 5-permissions
 
 ```
-1-helloworld-simple
-2-helloworld-script
-3-hook-bash
-4-security
+
+```
+
+## Deny everything
+
+```
+{
+  "permissions": {
+    "allow": [
+    ],
+    "ask": [
+    ],
+    "deny": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "WebFetch(*)",
+      "WebSearch(*)"
+    ]
+  },
+  "hooks": {}
+}
 ```
