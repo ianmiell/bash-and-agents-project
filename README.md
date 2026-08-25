@@ -9,4 +9,6 @@ Example project to demonstrate agent concepts for O'Reilly "Bash and Agents" cou
 2-helloworld-script
 3-hook-bash
 4-security
+5-permissions
+6-hook-subagent
 ```
