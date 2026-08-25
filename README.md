@@ -11,4 +11,5 @@ Example project to demonstrate agent concepts for O'Reilly "Bash and Agents" cou
 4-security
 5-permissions
 6-hook-subagent
+7-command-design
 ```
