@@ -1,14 +1,22 @@
 {
   "permissions": {
-    "allow": [ ],
-    "ask": [ ],
-    "deny": [
-      "Bash(*)",
+    "allow": [
       "Read(*)",
-      "Write(*)",
+      "Bash(ls *)"
+    ],
+    "ask": [
       "Edit(*)",
-      "WebFetch(*)",
-      "WebSearch(*)"
+      "Write(*)",
+      "Bash(rm *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./secrets/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)"
     ]
   },
   "hooks": {

@@ -82,7 +82,7 @@ Ask claude to
 {
   "permissions": {
     "allow": [
-      "Read(*)"
+      "Read(*)",
       "Bash(ls *)"
     ],
     "ask": [
