@@ -1,23 +1,4 @@
 {
-      "permissions": {
-    "allow": [
-      "Read(*)"
-    ],
-    "ask": [
-      "Edit(*)",
-      "Write(*)",
-      "Bash(*)"
-    ],
-    "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./**/*.pem)",
-      "Read(./**/*.key)",
-      "Read(./secrets/**)",
-      "Read(~/.aws/**)",
-      "Read(~/.ssh/**)"
-    ]
-  },
   "hooks": {
     "PreToolUse": [
       {
