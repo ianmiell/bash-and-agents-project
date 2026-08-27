@@ -10,6 +10,7 @@
       "Bash(rm *)"
     ],
     "deny": [
+      "Bash(git *)",
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./**/*.pem)",
@@ -17,19 +18,6 @@
       "Read(./secrets/**)",
       "Read(~/.aws/**)",
       "Read(~/.ssh/**)"
-    ]
-  },
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash $CLAUDE_PROJECT_DIR/.claude/hooks/log-bash/log-bash-commands.sh"
-          }
-        ]
-      }
     ]
   }
 }

@@ -32,8 +32,7 @@ settings.json is therefore for the team, and settings.local.json is for your per
       "WebFetch(*)",
       "WebSearch(*)"
     ]
-  },
-  "hooks": {}
+  }
 }
 ```
 
@@ -67,14 +66,18 @@ and you should get a permission failure
       "Read(~/.aws/**)",
       "Read(~/.ssh/**)"
     ]
-  },
-  "hooks": {}
+  }
 }
 ```
 
 ### More Granular
 
-Ask claude to
+Ask claude to:
+
+```
+List the files in the current folder using ls
+Remove the README using rm
+```
 
 .claude/settings.json
 
@@ -91,6 +94,7 @@ Ask claude to
       "Bash(rm *)"
     ],
     "deny": [
+      "Bash(git *)",
       "Read(./.env)",
       "Read(./.env.*)",
       "Read(./**/*.pem)",
@@ -99,8 +103,7 @@ Ask claude to
       "Read(~/.aws/**)",
       "Read(~/.ssh/**)"
     ]
-  },
-  "hooks": {}
+  }
 }
 ```
 
