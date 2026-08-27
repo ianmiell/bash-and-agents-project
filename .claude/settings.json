@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [ ],
+    "ask": [ ],
+    "deny": [
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "WebFetch(*)",
+      "WebSearch(*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_PROJECT_DIR/.claude/hooks/log-bash/log-bash-commands.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
