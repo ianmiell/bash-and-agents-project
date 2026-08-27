@@ -9,15 +9,12 @@ By default, claude uses auto mode: https://code.claude.com/docs/en/permission-mo
 A 'separate model' (?) reviews actions before they run.
 
 ### Deny everything
+Claude sets the ~/.gitignore file to ignore .claude/settings.local.json files, so it doesn't get added to git.
+
+.claude/settings.json is therefore for the team, and settings.local.json is for your personal overrides.
 
 See what can be controlled using permissions.
 Start with denying everything:
-
-Claude sets the ~/.gitignore file to ignore .claude/settings.local.json files, so it doesn't get added to git.
-
-settings.json is therefore for the team, and settings.local.json is for your personal overrides.
-
-.claude/settings.json
 
 ```
 {
@@ -41,34 +38,6 @@ Ask claude:
 "create a file 'todo'"
 
 and you should get a permission failure
-
-### More sensible restricted
-
-.claude/settings.json
-
-```
-{
-  "permissions": {
-    "allow": [
-      "Read(*)"
-    ],
-    "ask": [
-      "Edit(*)",
-      "Write(*)",
-      "Bash(*)"
-    ],
-    "deny": [
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./**/*.pem)",
-      "Read(./**/*.key)",
-      "Read(./secrets/**)",
-      "Read(~/.aws/**)",
-      "Read(~/.ssh/**)"
-    ]
-  }
-}
-```
 
 ### More Granular
 

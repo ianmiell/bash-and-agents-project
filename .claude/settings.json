@@ -1,23 +1,14 @@
 {
   "permissions": {
-    "allow": [
-      "Read(*)",
-      "Bash(ls *)"
-    ],
-    "ask": [
-      "Edit(*)",
-      "Write(*)",
-      "Bash(rm *)"
-    ],
+    "allow": [ ],
+    "ask": [ ],
     "deny": [
-      "Bash(git *)",
-      "Read(./.env)",
-      "Read(./.env.*)",
-      "Read(./**/*.pem)",
-      "Read(./**/*.key)",
-      "Read(./secrets/**)",
-      "Read(~/.aws/**)",
-      "Read(~/.ssh/**)"
+      "Bash(*)",
+      "Read(*)",
+      "Write(*)",
+      "Edit(*)",
+      "WebFetch(*)",
+      "WebSearch(*)"
     ]
   }
 }
