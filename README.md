@@ -17,7 +17,7 @@ Claude sets the ~/.gitignore file to ignore .claude/settings.local.json files, s
 
 settings.json is therefore for the team, and settings.local.json is for your personal overrides.
 
-.claude/settings.local.json
+.claude/settings.json
 
 ```
 {
@@ -45,7 +45,7 @@ and you should get a permission failure
 
 ### More sensible restricted
 
-.claude/settings.local.json
+.claude/settings.json
 
 ```
 {
@@ -74,7 +74,9 @@ and you should get a permission failure
 
 ### More Granular
 
-.claude/settings.local.json
+Ask claude to
+
+.claude/settings.json
 
 ```
 {
