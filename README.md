@@ -4,6 +4,10 @@ Example project to demonstrate agent concepts for O'Reilly "Bash and Agents" cou
 
 ## 5-permissions
 
+By default, claude uses auto mode: https://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode
+
+A 'separate model' (?) reviews actions before they run.
+
 ### Deny everything
 
 See what can be controlled using permissions.
@@ -31,7 +35,9 @@ Start with denying everything:
 
 Ask claude:
 
-"create a file 'todo'" and you should get a permission failure
+"create a file 'todo'"
+
+and you should get a permission failure
 
 ### More sensible restricted
 
