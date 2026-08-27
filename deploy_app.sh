@@ -8,7 +8,7 @@ readonly DESCRIPTION="Deploy an application"
 usage() {
   cat <<'EOF'
 Usage:
-  deploy_app.sh --environment <dev|test|prod> --version <version>
+  deploy_app.sh --environment <dev|test|prod> --version <version> [--dry-run]
   deploy_app.sh --health <dev|test|prod>
   deploy_app.sh --describe
   deploy_app.sh --help
@@ -27,6 +27,19 @@ Example output:
     "environment": "test",
     "version": "1.2.3",
     "status": "deployed",
+    "dry_run": false,
+    "deploy_time": "Fri 31 Jul 2026 15:46:39 BST"
+  }
+
+  $ deploy_app.sh --environment test --version 1.2.3 --dry-run
+  {
+    "ok": true,
+    "action": "deploy",
+    "application": "app",
+    "environment": "test",
+    "version": "1.2.3",
+    "status": "dry-run",
+    "dry_run": true,
     "deploy_time": "Fri 31 Jul 2026 15:46:39 BST"
   }
 
@@ -67,6 +80,10 @@ describe_command() {
           health: {
             required: false,
             values: ["dev", "test", "prod"]
+          },
+          dry_run: {
+            required: false,
+            values: [true, false]
           }
         },
         exit_codes: {
@@ -96,11 +113,22 @@ valid_environment() {
 deploy_app() {
   local environment=$1
   local version=$2
-  local deploy_time
+  local dry_run=$3
+  local deploy_time status
   deploy_time=$(date)
+
+  if [[ "$dry_run" == "true" ]]; then
+    status="dry-run"
+  else
+    # Work to actually deploy the app would go here
+    status="deployed"
+  fi
+
   jq -n \
     --arg environment "$environment" \
     --arg version "$version" \
+    --arg status "$status" \
+    --argjson dry_run "$dry_run" \
     --arg deploy_time "$deploy_time" \
     '{
       ok: true,
@@ -108,7 +136,8 @@ deploy_app() {
       application: "app",
       environment: $environment,
       version: $version,
-      status: "deployed",
+      status: $status,
+      dry_run: $dry_run,
       deploy_time: $deploy_time
     }'
 }
@@ -134,6 +163,7 @@ main() {
   local environment=""
   local health_environment=""
   local version=""
+  local dry_run="false"
 
   require_jq
 
@@ -174,6 +204,10 @@ main() {
         health_environment=${1#*=}
         shift
         ;;
+      --dry-run)
+        dry_run="true"
+        shift
+        ;;
       -*)
         argument_error "unknown option: $1"
         ;;
@@ -190,6 +224,7 @@ main() {
   if [[ -n "$health_environment" ]]; then
     [[ -z "$environment" ]] || argument_error "--health cannot be combined with --environment"
     [[ -z "$version" ]] || argument_error "--health cannot be combined with --version"
+    [[ "$dry_run" == "false" ]] || argument_error "--health cannot be combined with --dry-run"
     valid_environment "$health_environment" || argument_error "health environment must be one of: dev, test, prod"
     health_app "$health_environment"
     return 0
@@ -199,7 +234,7 @@ main() {
   valid_environment "$environment" || argument_error "environment must be one of: dev, test, prod"
   [[ -n "$version" ]] || argument_error "version is required"
 
-  deploy_app "$environment" "$version"
+  deploy_app "$environment" "$version" "$dry_run"
 }
 
 main "$@"
