@@ -13,6 +13,10 @@ A 'separate model' (?) reviews actions before they run.
 See what can be controlled using permissions.
 Start with denying everything:
 
+Claude sets the ~/.gitignore file to ignore .claude/settings.local.json files, so it doesn't get added to git.
+
+settings.json is therefore for the team, and settings.local.json is for your personal overrides.
+
 .claude/settings.local.json
 
 ```
