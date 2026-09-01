@@ -4,9 +4,11 @@ Example project to demonstrate agent concepts for O'Reilly "Bash and Agents" cou
 
 # 3-hook-bash
 
-Look at .claude/settings.json and
+Look at .claude/settings.json and:
 
-https://code.claude.com/docs/en/hooks
+[Hooks reference](https://code.claude.com/docs/en/hooks)
+
+[Hooks guide](https://code.claude.com/docs/en/hooks-guide)
 
 ```
 claude
