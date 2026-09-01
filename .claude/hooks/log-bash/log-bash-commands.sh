@@ -11,7 +11,7 @@ cwd=$(echo "$input" | jq -r '.cwd // empty')
 
 if [ -n "$command" ]; then
   timestamp=$(date '+%Y-%m-%d %H:%M:%S')
-  echo "[$timestamp] input=$(echo $input | jq .)" >> "$LOG_FILE"
+  echo "[$timestamp] input=$(echo "$input" | jq .)" >> "$LOG_FILE"
   echo "[$timestamp] cwd=$cwd cmd=$command" >> "$LOG_FILE"
 fi
 
