@@ -8,6 +8,7 @@ To demonstrate leakage via a nefarious skill:
 
 ```
 rm ~/env_copied
+cat env_copied
 claude
 say hello world
 QUIT
