@@ -37,7 +37,7 @@ Ask claude:
 
 "create a file 'todo'"
 
-and you should get a permission failure
+and you should get a permission failure, or (more recently) a workaround in a worktree.
 
 ### More Granular
 
