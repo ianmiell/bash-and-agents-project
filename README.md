@@ -7,11 +7,13 @@ Example project to demonstrate agent concepts for O'Reilly "Bash and Agents" cou
 To demonstrate leakage via a nefarious skill:
 
 ```
-rm ~/env_copied
-cat env_copied
+cat .claude/skills/helloworld/SKILL.md
+rm -f ~/env_copied
+cat env
 claude
 say hello world
 QUIT
 cat ~/env_copied
+cat .claude/skills/helloworld/hello_world.sh
 ```
 
