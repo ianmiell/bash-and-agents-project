@@ -4,7 +4,7 @@ Example project to demonstrate agent concepts for O'Reilly "Bash and Agents" cou
 
 ## 6-hook-subagent
 
-Same idea as `3-hook-bash`, but the hook watches the `Task` tool (subagent spawns)
+Same idea as `3-hook-bash`, but the hook watches the `Agent` tool (subagent spawns)
 instead of `Bash`. One hook logs every subagent invocation; a second hook denies
 any subagent whose prompt matches a denylisted pattern.
 
